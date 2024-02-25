@@ -38,7 +38,7 @@ RUN curl -OL https://download.jetbrains.com/kotlin/native/qemu-aarch64-static-5.
     mv qemu-aarch64-static-5.1.0-linux-2 /root/.konan/dependencies
 
 FROM --platform=linux/amd64 debian:bookworm-slim
-ARG KOTLIN_VERSION="1.9.21"
+ARG KOTLIN_VERSION
 ARG KOTLIN_TARGET="linux-x86_64"
 RUN apt update && \
     apt install --no-install-recommends -y \
