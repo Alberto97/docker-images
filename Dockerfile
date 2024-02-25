@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 debian:bookworm-slim
+FROM --platform=linux/amd64 debian:bookworm-slim as build
 
 ARG KOTLIN_VERSION
 ARG KOTLIN_TARGET="linux-x86_64"
@@ -60,3 +60,6 @@ RUN echo "${GCC_GLIBC_X64}" >> /root/.konan/dependencies/.extracted && \
     echo "${LIBFFI_X64}" >> /root/.konan/dependencies/.extracted && \
     echo "${GCC_GLIBC_AARCH64}" >> /root/.konan/dependencies/.extracted && \
     echo "${QEMU_AARCH64}" >> /root/.konan/dependencies/.extracted
+
+FROM --platform=linux/amd64 debian:bookworm-slim
+COPY --from=build /root/.konan/ /root/.konan/
