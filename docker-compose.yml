@@ -1,0 +1,8 @@
+version: "2.1"
+services:
+  kotlin-native:
+    build:
+      context: .
+      args:
+        KOTLIN_VERSION: 1.9.21
+    image: ghcr.io/alberto97/kotlin-native
